@@ -79,17 +79,21 @@
 
     /* 반응형 스타일 */
     @media (max-width: 600px) {
-      header {
-        text-align: center;
-      }
-      nav {
-        justify-content: center;
-      }
-      nav button {
-        flex: 1 1 auto;
-        min-width: 100px;
-      }
+      .intro-card {
+        flex-direction: column;
+        align-items: flex-start;
     }
+
+      .profile {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+  .intro-text p {
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 <body>
@@ -99,7 +103,6 @@
     <nav>
       <button onclick="loadPage('intro')">자기소개</button>
       <button onclick="loadPage('about')">기술 소개</button>
-      <button onclick="loadPage('projects')">프로젝트</button>
       <button onclick="loadPage('contact')">연락처</button>
     </nav>
   </header>
@@ -125,26 +128,25 @@
 
       about: `
         <h2>기술 소개</h2>
-        <p>제가 사용하는 기술은 다음과 같습니다:</p>
-        <ul>
-          <li>HTML / CSS / JavaScript</li>
-          <li>React.js, Node.js</li>
-          <li>Python, Flask</li>
-          <li>Machine Learning, Deep Learning</li>
-        </ul>
+        <div class="intro-card">
+          <p>제가 사용하는 기술은 다음과 같습니다:</p>
+          <ul>
+            <li>HTML / CSS / JavaScript</li>
+            <li>android</li>
+            <li>java, spring</li>
+            <li>unity</li>
+          </ul>
+        </div>
       `,
-      projects: `
-        <h2>프로젝트</h2>
-        <ul>
-          <li>자기소개 홈페이지 - HTML/CSS/JS만 사용한 SPA</li>
-          <li>날씨 앱 - OpenWeatherMap API 연동</li>
-          <li>할 일 관리 앱 - 로컬 스토리지 기반</li>
-        </ul>
-      `,
+      
       contact: `
         <h2>연락처</h2>
-        <p>이메일: example@example.com</p>
-        <p>GitHub: <a href="https://github.com/yourname" target="_blank">github.com/yourname</a></p>
+        <div class="intro-card">
+          <div class="intro-text">
+            <p>이메일: kysjoa0827@naver.com</p>
+            <p>GitHub: <a href="https://github.com/mirstonekwon" target="_blank">github</a></p>
+          </div>
+        </div>
       `
     };
 
