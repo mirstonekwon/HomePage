@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자기소개 홈페이지</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to bottom, #65dcce, transparent);
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    nav button {
+      background: #ffffffcc;
+      border: 1px solid #4caf50;
+      border-radius: 5px;
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    nav button:hover {
+      background: #c8e6c9;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .intro-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: #a6917c;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      align-items: center;
+    }
+    .profile {
+      flex: 1 1 300px;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    .intro-text {
+      flex: 2 1 300px;
+    }
+    .intro-text p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+
+    /* 반응형 스타일 */
+    @media (max-width: 600px) {
+      header {
+        text-align: center;
+      }
+      nav {
+        justify-content: center;
+      }
+      nav button {
+        flex: 1 1 auto;
+        min-width: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>나의 홈페이지</h1>
+    <nav>
+      <button onclick="loadPage('intro')">자기소개</button>
+      <button onclick="loadPage('about')">기술 소개</button>
+      <button onclick="loadPage('projects')">프로젝트</button>
+      <button onclick="loadPage('contact')">연락처</button>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- 콘텐츠가 여기에 로딩됩니다 -->
+  </main>
+
+  <script>
+    const pages = {
+      intro: `
+        <h2>자기소개</h2>
+        <div class="intro-card">
+          <img src="image/photo.jpg" alt="자기 사진" class="profile" />
+          <div class="intro-text">
+            <p><strong>이름:</strong> 권용석</p>
+            <p><strong>생년월일:</strong> 00.08.27</p>
+            <p><strong>거주지:</strong> 남양주시 별내동</p>
+            <p><strong>학교/전공:</strong> 강원대학교 / 컴퓨터공학과</p>
+          </div>
+        </div>
+      `,
+
+      about: `
+        <h2>기술 소개</h2>
+        <p>제가 사용하는 기술은 다음과 같습니다:</p>
+        <ul>
+          <li>HTML / CSS / JavaScript</li>
+          <li>React.js, Node.js</li>
+          <li>Python, Flask</li>
+          <li>Machine Learning, Deep Learning</li>
+        </ul>
+      `,
+      projects: `
+        <h2>프로젝트</h2>
+        <ul>
+          <li>자기소개 홈페이지 - HTML/CSS/JS만 사용한 SPA</li>
+          <li>날씨 앱 - OpenWeatherMap API 연동</li>
+          <li>할 일 관리 앱 - 로컬 스토리지 기반</li>
+        </ul>
+      `,
+      contact: `
+        <h2>연락처</h2>
+        <p>이메일: example@example.com</p>
+        <p>GitHub: <a href="https://github.com/yourname" target="_blank">github.com/yourname</a></p>
+      `
+    };
+
+    function loadPage(page) {
+      document.getElementById('content').innerHTML = pages[page];
+    }
+
+    // 기본 페이지 로딩
+    loadPage('intro');
+  </script>
+
+</body>
+</html>
